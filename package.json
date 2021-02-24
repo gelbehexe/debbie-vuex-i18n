@@ -1,0 +1,45 @@
+{
+  "name": "@gelbehexe/debbie-vuex-i18n",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Localization for vuex",
+  "contributors": [
+    "Deborah White <deborah.white1503@icloud.com>"
+  ],
+  "homepage": "https://github.com/gelbehexe/debbie-vuex-i18n",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gelbehexe/debbie-vuex-i18n.git"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/gelbehexe/debbie-vuex-i18n/issues"
+  },
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:types",
+    "build:cjs": "microbundle --format cjs --no-sourcemap | grep -v 'rpt2: options error TS5053' && cp src/index.d.ts ./dist/index.d.ts",
+    "build:types": "cp src/index.d.ts ./index.d.ts",
+    "prepublishOnly": "npm run build",
+    "watch": "microbundle watch --format cjs"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-vue": "^7.6.0",
+    "microbundle": "^0.13.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.5",
+    "vuex": "^4.0.0"
+  }
+}
