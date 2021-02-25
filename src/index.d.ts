@@ -19,13 +19,6 @@ declare interface UseTranslationResult {
     addDeferredLocalizationContext: addDeferredLocalizationContext
 }
 
-export function initializeTranslation(
-    store: Store,
-    languageLoader: ContextualLanguageLoader,
-    locale: LocalizationLocale,
-    initialTranslations: Object,
-)
-
 export type useTranslation = (store: Store) => UseTranslationResult
 
 declare type getContextualLocalization = (contexts: string[]|string) => Promise<boolean>
