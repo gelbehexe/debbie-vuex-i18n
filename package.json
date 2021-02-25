@@ -1,6 +1,6 @@
 {
   "name": "@gelbehexe/debbie-vuex-i18n",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "license": "MIT",
   "description": "Localization for vuex",
   "contributors": [
