@@ -20,7 +20,7 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "npm run build:cjs && npm run build:types",
-    "build:cjs": "microbundle --format cjs --no-sourcemap -o dist/index.js | grep -v 'rpt2: options error TS5053' && cp src/index.d.ts ./dist/index.d.ts",
+    "build:cjs": "microbundle --format cjs --no-sourcemap -o dist/index.js | grep -v 'rpt2: options error TS5053'",
     "build:types": "rm -f dist/index.d.ts && cp src/index.d.ts ./index.d.ts",
     "prepublishOnly": "npm run build",
     "watch": "microbundle watch --format cjs --no-sourcemap -o dist/index.js"
