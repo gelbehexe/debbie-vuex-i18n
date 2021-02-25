@@ -1,5 +1,10 @@
 import { getContextualLocalizationUsingStore, loadDeferredLocalizationUsingStore } from "./loader"
 
+/**
+ *
+ * @param store
+ * @return {{loadDeferredLocalization: (function(): Promise<boolean>), getContextualLocalization: (function((String[]|String)): Promise<boolean>)}}
+ */
 export default function useLocalizationContextLoader(store) {
     /**
      * loads localization contexts directly
