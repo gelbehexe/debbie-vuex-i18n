@@ -66,14 +66,27 @@ const translationPlugin = {
                     fn = () => {}
                 }
 
+                let timeoutReached = false
+
                 const timeout = window.setTimeout(() => {
                     console.warn("localization value timeout reached")
-                }, 6000)
+                    timeoutReached = true
+                    fn(false)
+                }, 8000)
 
                 loadDeferredLocalization()
-                    .finally(() => {
+                    .then(res => {
                         window.clearTimeout(timeout)
-                        fn()
+                        if (!timeoutReached) {
+                            fn(res)
+                        }
+                    })
+                    .catch(err => {
+                        console.warn(err)
+                        window.clearTimeout(timeout)
+                        if (!timeoutReached) {
+                            fn(false)
+                        }
                     })
             },
         })
