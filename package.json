@@ -23,7 +23,8 @@
     "build:cjs": "microbundle --format cjs --no-sourcemap -o dist/index.js | grep -v 'rpt2: options error TS5053'",
     "build:types": "rm -f dist/index.d.ts && cp src/index.d.ts ./index.d.ts",
     "prepublishOnly": "npm run build",
-    "watch": "microbundle watch --format cjs --no-sourcemap -o dist/index.js"
+    "watch": "microbundle watch --format cjs --no-sourcemap -o dist/index.js",
+    "test": "echo 'No tests yet'"
   },
   "files": [
     "index.js",
