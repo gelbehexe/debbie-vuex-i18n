@@ -28,7 +28,7 @@ function _registerLoader(store, loader) {
  * @private
  */
 function _register(store) {
-    store.registerModule("vuex-localization", vuexLocalizationStore)
+    store.registerModule("debbie-vuex-i18n", vuexLocalizationStore)
 }
 
 /**
