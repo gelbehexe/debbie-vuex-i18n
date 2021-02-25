@@ -16,14 +16,14 @@
     "url": "https://github.com/gelbehexe/debbie-vuex-i18n/issues"
   },
   "source": "src/index.js",
-  "main": "dist/index.js",
+  "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "npm run build:cjs && npm run build:types",
-    "build:cjs": "microbundle --format cjs --no-sourcemap | grep -v 'rpt2: options error TS5053' && cp src/index.d.ts ./dist/index.d.ts",
-    "build:types": "cp src/index.d.ts ./index.d.ts",
+    "build:cjs": "microbundle --format cjs --no-sourcemap -o dist/index.js | grep -v 'rpt2: options error TS5053' && cp src/index.d.ts ./dist/index.d.ts",
+    "build:types": "rm -f dist/index.d.ts && cp src/index.d.ts ./index.d.ts",
     "prepublishOnly": "npm run build",
-    "watch": "microbundle watch --format cjs"
+    "watch": "microbundle watch --format cjs --no-sourcemap -o dist/index.js"
   },
   "files": [
     "index.js",
