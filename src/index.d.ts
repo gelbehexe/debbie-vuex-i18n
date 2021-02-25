@@ -3,10 +3,9 @@ import { Plugin, Store } from "vuex"
 // @ts-ignore
 import { App } from "@vue/runtime-core/dist/runtime-core"
 
-declare type ContextualLanguageLoaderPromise = Promise<{data: {}}>
+declare type ContextualLanguageLoaderPromise = Promise<{}>
 declare type ContextualLanguageLoader = (contexts: string[]) => ContextualLanguageLoaderPromise
 declare type LocalizationLocale = {}
-// declare type Store = typeof Object
 
 declare type trans = (key:string, replace?: Object) => string
 declare type transChoice = (key: string, number: number, replace?: Object) => string
