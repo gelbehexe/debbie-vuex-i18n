@@ -45,8 +45,17 @@ function _makeReplacements(line, replace) {
  * @private
  */
 function _extractFromString(part, number) {
-    const matches = part.matchAll(/^[{[]([^[]{}]*)[}]]((.|\n\r)*)/)
+    // noinspection RegExpDuplicateCharacterInClass
+    const re = /^[\\{\\[]([^\\[\]\\{\\}]*)[\\}\]](.*)/gs
+    const result = re[Symbol.matchAll](part)
+    let matches = [...result]
+    if (matches.length) {
+        matches = matches[0]
+    }
 
+    /**
+     * @var {String[]}
+     */
     if (matches.length !== 3) {
         return null
     }
@@ -62,7 +71,7 @@ function _extractFromString(part, number) {
     const value = matches[2]
 
     if (condition.includes(",")) {
-        const [from, to] = condition.split(",", 1)
+        const [from, to] = condition.split(",", 2)
 
         if (to === "*" && number >= from) {
             return value
